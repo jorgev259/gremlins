@@ -169,6 +169,7 @@ MonoBehaviour:
   login: chitowarlock
   password: oauth:qvu3vn38in730t0ua8lnwblledfl9e
   channelName: chitowarlock
+  connected: 0
 --- !u!1 &302933318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1329,7 @@ GameObject:
   - component: {fileID: 882985526}
   - component: {fileID: 875575385}
   m_Layer: 0
-  m_Name: Shulliy
+  m_Name: Cheeb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4930,6 +4931,7 @@ MonoBehaviour:
   login: 
   password: oauth:qvu3vn38in730t0ua8lnwblledfl9e
   channelName: 
+  connected: 0
 --- !u!1 &1442525531
 GameObject:
   m_ObjectHideFlags: 0

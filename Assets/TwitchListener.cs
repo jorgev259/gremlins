@@ -19,15 +19,19 @@ public class TwitchListener : MonoBehaviour
     void onMessage(ChatMessage m){
         if(m.user == username){
             textMesh.text = m.message;
+
+            Cheeb.SetActive(true);
             bubble.SetActive(true);
+
             bubbleTimer = bubbleTime;
             disconnectTime = disconnectSeconds;
         }
     }
 
     void onConnect(){
-        Cheeb.SetActive(true);
         bubble.SetActive(false);
+        Cheeb.SetActive(false);
+
         disconnectTime = disconnectSeconds;
     }
     void onDisconnect(){
@@ -36,26 +40,26 @@ public class TwitchListener : MonoBehaviour
     }
 
     void Start()
-    {     
+    {            
         bubble = transform.Find("Bubble").gameObject;
         textMesh = bubble.GetComponent<TextMeshPro>();
         Cheeb = transform.Find("Cheeb").gameObject;
 
+        Cheeb.SetActive(false);
+        bubble.SetActive(false);
+
         TwitchManager.Instance.OnMessage += onMessage;
         TwitchManager.Instance.onConnect += onConnect;
         TwitchManager.Instance.onDisconnect += onDisconnect;
-
-        Cheeb.SetActive(false);
-        bubble.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {           
         if (bubbleTimer > 0) bubbleTimer -= Time.deltaTime;
-        if(disconnectTime > 0) disconnectTime -= Time.deltaTime;
+        if (disconnectTime > 0) disconnectTime -= Time.deltaTime;
 
-        if(bubbleTimer <= 0  && bubble.activeSelf) bubble.SetActive(false);
-        if(disconnectTime <= 0 && Cheeb.activeSelf) Cheeb.SetActive(false);
+        if (bubbleTimer <= 0  && bubble.activeSelf) bubble.SetActive(false);
+        if (disconnectTime <= 0 && Cheeb.activeSelf) Cheeb.SetActive(false);
     }
 }

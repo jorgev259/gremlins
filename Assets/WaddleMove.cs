@@ -31,23 +31,25 @@ public class WaddleMove : MonoBehaviour
     }
 
     void FixedUpdate(){  
-        Vector3 vel = Vector3.zero;   
+        if(animator != null){
+            Vector3 vel = Vector3.zero;   
 
-        if(walkValue){
-            float x = transform.position.x;
-            if (x>8.4) direction = "left";
-            else if (x<-8.4) direction = "right";
+            if(walkValue){
+                float x = transform.position.x;
+                if (x>8.4) direction = "left";
+                else if (x<-8.4) direction = "right";
 
-            if(direction == "right") {
-                animator.SetInteger("direction", 2);
-                vel = Vector3.right;
-            } else if(direction == "left") {
-                animator.SetInteger("direction", 1);
-                vel = Vector3.left;
-            }     
-        } else animator.SetInteger("direction", 0);
+                if(direction == "right") {
+                    animator.SetInteger("direction", 2);
+                    vel = Vector3.right;
+                } else if(direction == "left") {
+                    animator.SetInteger("direction", 1);
+                    vel = Vector3.left; 
+                }     
+            } else animator.SetInteger("direction", 0);
 
-        rigidBody.velocity = vel;
+            rigidBody.velocity = vel;
+        }
     }
 
     // Start is called before the first frame update
@@ -66,6 +68,6 @@ public class WaddleMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("walk", walkValue);
+        animator?.SetBool("walk", walkValue);
     }
 }

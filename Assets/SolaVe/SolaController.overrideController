@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SolaController
+  m_Controller: {fileID: 9100000, guid: 77fc6b82dd685274b858f936008e43fc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 0f5833a3dd44d754d95c2727d24faf27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0f5833a3dd44d754d95c2727d24faf27, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7be107dce5937584fb74022529660a1c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7be107dce5937584fb74022529660a1c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a170e555a727bef4eb1787b827242169, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a170e555a727bef4eb1787b827242169, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9f76c33ae40e76a45810f043de1341d9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9028df4935a22494aa71bb92e311de8a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 71554acfe50ed15418e5124746aa95d9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 196ad147b271e7942a977b90b62de886, type: 2}

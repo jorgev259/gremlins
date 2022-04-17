@@ -94,7 +94,7 @@ public class TwitchListener : MonoBehaviour
         TwitchManager.Instance.onDisconnect += onDisconnect;
 
         InvokeRepeating("Blink", 0f, 8f);
-        InvokeRepeating("TypeTalk", 0f, 0.2f);
+        InvokeRepeating("TypeTalk", 0f, 0.1f);
     }
 
     // Update is called once per frame

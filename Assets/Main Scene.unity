@@ -568,12 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fear''s awake, anger beats loud, face reality
-
-    Never beat charity
-
-    The
-    enemy you''re fighting covers all society'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -618,7 +613,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -636,7 +631,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 8.677441, y: 0.079242945, z: 10.102392, w: 4.428608}
+  m_margin: {x: 8.677441, y: 0.079242945, z: 10.102392, w: 4.382927}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -829,6 +824,8 @@ MonoBehaviour:
   username: chitowarlock
   bubbleTimer: 0
   disconnectTime: 0
+  currentText: 
+  currentTextInt: 0
 --- !u!50 &1164532227
 Rigidbody2D:
   serializedVersion: 4
@@ -1027,6 +1024,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3002ae83086471c4484fadb50f255ec4, type: 2}
+    - target: {fileID: 13700002, guid: 93978553840bde9479b5091a6e4439df, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 13700004, guid: 93978553840bde9479b5091a6e4439df, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1037,3 +1038,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3f026f61dd95b5f4591ea9636799eced, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93978553840bde9479b5091a6e4439df, type: 3}
+--- !u!1 &2108100382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100108, guid: 93978553840bde9479b5091a6e4439df, type: 3}
+  m_PrefabInstance: {fileID: 1360633257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2108100385
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108100382}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1db0d053e139ff4594664d1ad43df00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

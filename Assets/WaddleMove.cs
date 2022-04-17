@@ -14,6 +14,7 @@ public class WaddleMove : MonoBehaviour
     private Rigidbody2D rigidBody;
 
     void decideState (object sender, ElapsedEventArgs e){
+        // set 1:5 chance to walk
         bool decision = rand.NextDouble() > 0.5;
 
         if(decision){
@@ -40,13 +41,15 @@ public class WaddleMove : MonoBehaviour
                 else if (x<-8.4) direction = "right";
 
                 if(direction == "right") {
-                    animator.SetInteger("direction", 2);
                     vel = Vector3.right;
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, -90, transform.rotation.z); 
                 } else if(direction == "left") {
-                    animator.SetInteger("direction", 1);
                     vel = Vector3.left; 
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z); 
                 }     
-            } else animator.SetInteger("direction", 0);
+            } else {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z); 
+            }
 
             rigidBody.velocity = vel;
         }

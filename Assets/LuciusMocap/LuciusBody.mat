@@ -695,7 +695,7 @@ Material:
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
     - _ShadeShift: 0
-    - _ShadeToony: 0.9
+    - _ShadeToony: 0.682
     - _ShadingGradeRate: 1
     - _ShadowMix: 0
     - _ShadowMixThreshold: 0.5

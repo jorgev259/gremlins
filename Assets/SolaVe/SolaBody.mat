@@ -695,7 +695,7 @@ Material:
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
     - _ShadeShift: 0
-    - _ShadeToony: 0.9
+    - _ShadeToony: 0.682
     - _ShadingGradeRate: 1
     - _ShadowMix: 0
     - _ShadowMixThreshold: 0.5
@@ -1006,7 +1006,7 @@ Material:
     - _RimWidthNoiseTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _SSSColor: {r: 1, g: 0, b: 0, a: 1}
     - _SSSThicknessMapPan: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadeColor: {r: 0.96999997, g: 0.81, b: 0.86, a: 1}
+    - _ShadeColor: {r: 0.78431374, g: 0.5294118, b: 0.49803922, a: 1}
     - _SmoothnessMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularAnisoJitterMacro1Pan: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularAnisoJitterMacroPan: {r: 0, g: 0, b: 0, a: 0}
@@ -1037,3 +1037,4 @@ Material:
     - _VertexManipulationLocalScale: {r: 1, g: 1, b: 1, a: 1}
     - _VertexManipulationLocalTranslation: {r: 0, g: 0, b: 0, a: 1}
     - _VertexManipulationWorldTranslation: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

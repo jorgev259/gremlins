@@ -3,7 +3,6 @@ using System.Timers;
 
 public class WaddleMove : MonoBehaviour
 {
-    private Animator animator;
     [SerializeField]
     private bool walkValue = false;
     private System.Random rand = new System.Random();
@@ -31,6 +30,7 @@ public class WaddleMove : MonoBehaviour
     }
 
     void FixedUpdate(){  
+        Animator animator = GetComponentInChildren<Animator>();
         if(animator != null){
             Vector3 vel = Vector3.zero;   
 
@@ -55,7 +55,6 @@ public class WaddleMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
 
         aTimer = new Timer();
@@ -68,6 +67,7 @@ public class WaddleMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Animator animator = GetComponentInChildren<Animator>();
         animator?.SetBool("walk", walkValue);
     }
 }

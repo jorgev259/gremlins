@@ -12,6 +12,7 @@ public class WaddleMove : MonoBehaviour
     private const float decisionInterval = 5;
     private static Timer aTimer;
     private Rigidbody2D rigidBody;
+    private GameObject Cheeb;
 
     void decideState (object sender, ElapsedEventArgs e){
         // set 1:5 chance to walk
@@ -42,13 +43,13 @@ public class WaddleMove : MonoBehaviour
 
                 if(direction == "right") {
                     vel = Vector3.right;
-                    transform.rotation = Quaternion.Euler(transform.rotation.x, -90, transform.rotation.z); 
+                    Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 90, Cheeb.transform.rotation.z); 
                 } else if(direction == "left") {
                     vel = Vector3.left; 
-                    transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z); 
+                    Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, -95, Cheeb.transform.rotation.z); 
                 }     
             } else {
-                transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z); 
+                Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 180, Cheeb.transform.rotation.z); 
             }
 
             rigidBody.velocity = vel;
@@ -59,6 +60,7 @@ public class WaddleMove : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        Cheeb = transform.Find("Cheeb").gameObject;
 
         aTimer = new Timer();
         aTimer.Interval = decisionInterval * 1000;

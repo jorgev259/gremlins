@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150d41e56daa325459ba7d7d43ea6dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  login: chitowarlock
+  login: luciusofeden
   password: oauth:qvu3vn38in730t0ua8lnwblledfl9e
   channelName: chitowarlock
   connected: 0
@@ -188,7 +188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &30593563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3d42969c4dcb74486304ed684ee23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: chitowarlock
+  username: shaq_focus
   bubbleTimer: 0
   disconnectTime: 0
   currentText: 
@@ -1504,7 +1504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1164532225
 Transform:
   m_ObjectHideFlags: 0
@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3d42969c4dcb74486304ed684ee23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: chitowarlock
+  username: peechpenku
   bubbleTimer: 0
   disconnectTime: 0
   currentText: 
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3d42969c4dcb74486304ed684ee23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: chitowarlock
+  username: solave
   bubbleTimer: 0
   disconnectTime: 0
   currentText: 
@@ -2194,7 +2194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2056411768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,7 +2242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3d42969c4dcb74486304ed684ee23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: chitowarlock
+  username: luciusofeden
   bubbleTimer: 0
   disconnectTime: 0
   currentText: 

@@ -6,11 +6,11 @@ public class ChangeMonitor : MonoBehaviour {
     [SerializeField]
     private bool pressed = false;
     [SerializeField]
-    private int index = 0;
+    private int index;
     // Start is called before the first frame update
     void Start()
     {
-        
+        index = PlayerPrefs.GetInt("UnitySelectMonitor", 0);
     }
 
     // Update is called once per frame

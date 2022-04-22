@@ -38,7 +38,7 @@ public class TwitchListener : MonoBehaviour
           
             if(!Cheeb.activeSelf){
                 Cheeb.SetActive(true);
-                SetTransformX(NextFloat((float)-8.2, (float)8.2));
+                SetTransformX(NextFloat((float)-7.4, (float)7.4));
             }
 
             bubble.SetActive(true);

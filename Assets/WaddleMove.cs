@@ -41,8 +41,8 @@ public class WaddleMove : MonoBehaviour
 
             if(walkValue){
                 float x = transform.position.x;
-                if (x>8.4) direction = "left";
-                else if (x<-8.4) direction = "right";
+                if (x>7.4) direction = "left";
+                else if (x<-7.4) direction = "right";
 
                 if(direction == "right") {
                     vel = Vector3.right;

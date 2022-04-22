@@ -3,32 +3,35 @@ using System.Timers;
 
 public class WaddleMove : MonoBehaviour
 {
+    private Rigidbody2D rigidBody;
+    private GameObject Cheeb;
+    private System.Random rand;
+
     [SerializeField]
     private bool walkValue = false;
-    private System.Random rand = new System.Random();
 
     [SerializeField]
     private string direction; 
-    private const float decisionInterval = 5;
-    private static Timer aTimer;
-    private Rigidbody2D rigidBody;
-    private GameObject Cheeb;
 
-    void decideState (object sender, ElapsedEventArgs e){
-        // set 1:5 chance to walk
-        bool decision = rand.NextDouble() > 0.5;
+    [SerializeField]
+    private int seed;
+    [SerializeField]
+    private float decisionTimer = 0;
 
-        if(decision){
-            bool decision2 = rand.NextDouble() > 0.5;
+    private void decideState (){
+        int decisionInt = rand.Next(0,5);
+        bool walk = decisionInt == 0;
 
-            if(decision2) {
+        if(walk){
+            if(rand.Next(0,2) == 0) {
                 direction = "right";
             } else {
                 direction = "left";
             };
         }
 
-        walkValue = decision;
+        walkValue = walk;
+        decisionTimer = rand.Next(10,21);
     }
 
     void FixedUpdate(){  
@@ -59,19 +62,19 @@ public class WaddleMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rand = new System.Random(seed);
         rigidBody = GetComponent<Rigidbody2D>();
         Cheeb = transform.Find("Cheeb").gameObject;
 
-        aTimer = new Timer();
-        aTimer.Interval = decisionInterval * 1000;
- 
-        aTimer.Elapsed += decideState;
-        aTimer.Enabled = true;
+        decisionTimer = rand.Next(5,11);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (decisionTimer > 0) decisionTimer -= Time.deltaTime;
+        if (decisionTimer <= 0) decideState();
+
         Animator animator = GetComponentInChildren<Animator>();
         animator?.SetBool("walk", walkValue);
     }

@@ -203,6 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkValue: 0
   direction: 
+  seed: 143690355
+  decisionTimer: 0
 --- !u!50 &30593564
 Rigidbody2D:
   serializedVersion: 4
@@ -211,7 +213,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30593562}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1573,6 +1575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkValue: 0
   direction: 
+  seed: 40410104
+  decisionTimer: 0
 --- !u!1 &1211889942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1869,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkValue: 0
   direction: 
+  seed: 705661923
+  decisionTimer: 0
 --- !u!50 &1439125491
 Rigidbody2D:
   serializedVersion: 4
@@ -1873,7 +1879,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439125489}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2186,8 +2192,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2056411771}
   - component: {fileID: 2056411770}
-  - component: {fileID: 2056411769}
   - component: {fileID: 2056411768}
+  - component: {fileID: 2056411769}
   m_Layer: 0
   m_Name: Lucius
   m_TagString: Untagged
@@ -2209,6 +2215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkValue: 0
   direction: 
+  seed: 113023341
+  decisionTimer: 0
 --- !u!50 &2056411769
 Rigidbody2D:
   serializedVersion: 4

@@ -18,44 +18,45 @@ public class WaddleMove : MonoBehaviour
     [SerializeField]
     private float decisionTimer = 0;
 
+    private void setDirection(){
+        if(walkValue){
+            if(direction == "right") {
+                rigidBody.velocity = Vector3.right;
+                // Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 90, Cheeb.transform.rotation.z); 
+            } else if(direction == "left") {
+                rigidBody.velocity = Vector3.left; 
+                // Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, -95, Cheeb.transform.rotation.z); 
+            };
+        } else {
+            rigidBody.velocity = Vector3.zero;
+            // Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 180, Cheeb.transform.rotation.z); 
+        }
+    }
+
     private void decideState (){
         int decisionInt = rand.Next(0,5);
-        bool walk = decisionInt == 0;
+        walkValue = decisionInt == 0;
 
-        if(walk){
-            if(rand.Next(0,2) == 0) {
-                direction = "right";
-            } else {
-                direction = "left";
-            };
-        }
-
-        walkValue = walk;
+        if(rand.Next(0,2) == 0) direction = "right";
+        else direction = "left";
+        
+        Animator animator = GetComponentInChildren<Animator>();
+        animator?.SetBool("walk", walkValue);
+        setDirection();
+        
         decisionTimer = rand.Next(10,21);
     }
 
     void FixedUpdate(){  
-        Animator animator = GetComponentInChildren<Animator>();
-        if(animator != null){
-            Vector3 vel = Vector3.zero;   
-
-            if(walkValue){
-                float x = transform.position.x;
-                if (x>7.4) direction = "left";
-                else if (x<-7.4) direction = "right";
-
-                if(direction == "right") {
-                    vel = Vector3.right;
-                    Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 90, Cheeb.transform.rotation.z); 
-                } else if(direction == "left") {
-                    vel = Vector3.left; 
-                    Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, -95, Cheeb.transform.rotation.z); 
-                }     
-            } else {
-                Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 180, Cheeb.transform.rotation.z); 
-            }
-
-            rigidBody.velocity = vel;
+        if(walkValue){
+            float x = transform.position.x;
+            if (x>7.4) {
+                direction = "left";
+                setDirection();
+            } else if (x<-7.4) {
+                direction = "right";  
+                setDirection();
+            }  
         }
     }
 
@@ -74,8 +75,5 @@ public class WaddleMove : MonoBehaviour
     {
         if (decisionTimer > 0) decisionTimer -= Time.deltaTime;
         if (decisionTimer <= 0) decideState();
-
-        Animator animator = GetComponentInChildren<Animator>();
-        animator?.SetBool("walk", walkValue);
     }
 }

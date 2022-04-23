@@ -3,22 +3,21 @@ using TMPro;
 
 public class TwitchListener : MonoBehaviour
 {
-    public string username;
+
     private TextMeshPro textMesh;
     private GameObject bubble;
     private GameObject Cheeb;
     private Animator animator;
 
-
+    [SerializeField]
+    private string username;
     [SerializeField]
     private float bubbleTimer = 0;
     private const float bubbleTime = 5;
     private const int disconnectSeconds = 5 * 60;
     [SerializeField]
     private float disconnectTime = 0;
-    [SerializeField]
     private string currentText  = "";
-    [SerializeField]
     private int currentTextInt = 0;
 
     static float NextFloat(float min, float max){
@@ -58,6 +57,8 @@ public class TwitchListener : MonoBehaviour
     void onDisconnect(){
         Cheeb.SetActive(false);
         bubble.SetActive(false);
+
+        disconnectTime = 0;
     }
 
     void Blink(){
@@ -65,6 +66,7 @@ public class TwitchListener : MonoBehaviour
     }
 
     void TypeTalk () {
+        if(!Cheeb.activeSelf) return;
         if((textMesh.isTextTruncated && currentTextInt > 0) || currentText.Length == currentTextInt) {
             currentText = "";
             currentTextInt = 0;

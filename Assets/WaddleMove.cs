@@ -14,9 +14,14 @@ public class WaddleMove : MonoBehaviour
     private int seed;
     [SerializeField]
     private float decisionTimer = 5;
+    [SerializeField]
+    private float debugDirection;
+    [SerializeField]
+    private bool initialized = true;
 
     private void setVelocity(Vector3 direction){
         rigidBody.velocity = direction;
+        debugDirection = rigidBody.velocity.normalized.x;
     }
 
     private void decideState (){
@@ -54,11 +59,18 @@ public class WaddleMove : MonoBehaviour
         bubble = transform.Find("Bubble").gameObject;
         Cheeb = transform.Find("Cheeb").gameObject;
         rigidBody = Cheeb.GetComponent<Rigidbody>();
+
+        decisionTimer = rand.Next(5,11);
     }
 
     // Update is called once per frame
     void Update()
     {
+         if(Cheeb.activeSelf != initialized){
+            if(Cheeb.activeSelf) decisionTimer = rand.Next(5,11) + Time.deltaTime;
+            initialized = Cheeb.activeSelf;
+        }
+
         if(!Cheeb.activeSelf) return;
         
         if (decisionTimer > 0) decisionTimer -= Time.deltaTime;

@@ -3,77 +3,68 @@ using System.Timers;
 
 public class WaddleMove : MonoBehaviour
 {
-    private Rigidbody2D rigidBody;
+    private Rigidbody rigidBody;
     private GameObject Cheeb;
     private System.Random rand;
+    private GameObject bubble;
 
     [SerializeField]
     private bool walkValue = false;
-
-    [SerializeField]
-    private string direction; 
-
     [SerializeField]
     private int seed;
     [SerializeField]
-    private float decisionTimer = 0;
+    private float decisionTimer = 5;
 
-    private void setDirection(){
-        if(walkValue){
-            if(direction == "right") {
-                rigidBody.velocity = Vector3.right;
-                // Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 90, Cheeb.transform.rotation.z); 
-            } else if(direction == "left") {
-                rigidBody.velocity = Vector3.left; 
-                // Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, -95, Cheeb.transform.rotation.z); 
-            };
-        } else {
-            rigidBody.velocity = Vector3.zero;
-            // Cheeb.transform.rotation = Quaternion.Euler(Cheeb.transform.rotation.x, 180, Cheeb.transform.rotation.z); 
-        }
+    private void setVelocity(Vector3 direction){
+        rigidBody.velocity = direction;
     }
 
     private void decideState (){
         int decisionInt = rand.Next(0,5);
-        walkValue = decisionInt == 0;
-
-        if(rand.Next(0,2) == 0) direction = "right";
-        else direction = "left";
+        int directionInt = rand.Next(0,2);
+        walkValue = decisionInt == 0;   
         
         Animator animator = GetComponentInChildren<Animator>();
         animator?.SetBool("walk", walkValue);
-        setDirection();
-        
+
+        setVelocity(walkValue ? (directionInt == 0 ? Vector3.right : Vector3.left) : Vector3.zero);    
         decisionTimer = rand.Next(10,21);
     }
 
     void FixedUpdate(){  
+        if(!Cheeb.activeSelf) return;
+
         if(walkValue){
-            float x = transform.position.x;
-            if (x>7.4) {
-                direction = "left";
-                setDirection();
-            } else if (x<-7.4) {
-                direction = "right";  
-                setDirection();
-            }  
+            float x = Cheeb.transform.position.x;
+            if (x > 7.4) setVelocity(Vector3.left);
+            else if (x < -5.8) setVelocity(Vector3.right);
         }
+
+        Vector3 lookVector = walkValue ? rigidBody.velocity.normalized : Vector3.back;
+        float angleLookSpeed = 55;
+
+        Quaternion rotateAngle = Quaternion.RotateTowards(rigidBody.rotation.normalized, Quaternion.LookRotation(lookVector), Time.fixedDeltaTime * angleLookSpeed);
+        rigidBody.MoveRotation(rotateAngle);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         rand = new System.Random(seed);
-        rigidBody = GetComponent<Rigidbody2D>();
+        bubble = transform.Find("Bubble").gameObject;
         Cheeb = transform.Find("Cheeb").gameObject;
-
-        decisionTimer = rand.Next(5,11);
+        rigidBody = Cheeb.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!Cheeb.activeSelf) return;
+        
         if (decisionTimer > 0) decisionTimer -= Time.deltaTime;
         if (decisionTimer <= 0) decideState();
+
+        Vector3 temp = Vector3.zero + new Vector3(rigidBody.transform.position.x,0,0);
+        bubble.transform.position = temp;
     }
 }
